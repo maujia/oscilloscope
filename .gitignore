@@ -1,0 +1,24 @@
+# Build outputs
+build/
+*.bin
+*.elf
+*.hex
+*.map
+*.d
+*.o
+*.su
+
+# CubeMX generated (optional - keep if you want to share)
+*.ioc.bak
+*.mxproject.bak
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# WSL / temp
+*.swp
+*~
+
+# Debug logs
+*.log
