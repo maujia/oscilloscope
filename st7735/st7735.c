@@ -1,6 +1,8 @@
 #include "st7735.h"
 
 uint8_t dc_state = LOW;
+uint16_t x_offset = 2;
+uint16_t y_offset = 1;
 
 
 void init(){
@@ -18,6 +20,7 @@ void init(){
     st7735_write_cmd(&hspi1, ST7735_COLMOD, 1, 100);
     st7735_write_data(&hspi1, 5, 1, 100);
     st7735_write_cmd(&hspi1, ST7735_DISPON, 1, 100);
+
 }
 
 void set_CS_pin(){
@@ -59,12 +62,15 @@ void write_16bit(SPI_HandleTypeDef *hspi, uint16_t value, uint32_t timeout) {
 }
 
 void draw_pixel(uint16_t x, uint16_t y, uint8_t color[2]){
+    //x += x_offset;
+    //y += y_offset;
+
     st7735_write_cmd(&hspi1, ST7735_CASET, 1, 100);
     write_16bit(&hspi1, x, 100);
     write_16bit(&hspi1, x, 100);
     
     st7735_write_cmd(&hspi1, ST7735_RASET, 1, 100);
-    write_16bit(&hspi1, y, 100);
+    write_16bit(&hspi1, y , 100);
     write_16bit(&hspi1, y, 100);
     
     st7735_write_cmd(&hspi1, ST7735_RAMWR, 1, 100);
@@ -74,17 +80,19 @@ void draw_pixel(uint16_t x, uint16_t y, uint8_t color[2]){
 
 void draw_rectangle(uint16_t x1,uint16_t x2, uint16_t y1,uint16_t y2, uint8_t color[2]){
     st7735_write_cmd(&hspi1, ST7735_CASET, 1, 100);
-    write_16bit(&hspi1, x1, 100);
-    write_16bit(&hspi1, x2, 100);
+    write_16bit(&hspi1, x1+x_offset, 100);
+    write_16bit(&hspi1, x2+x_offset, 100);
     
     st7735_write_cmd(&hspi1, ST7735_RASET, 1, 100);
-    write_16bit(&hspi1, y1, 100);
-    write_16bit(&hspi1, y2, 100);
+    write_16bit(&hspi1, y1+y_offset, 100);
+    write_16bit(&hspi1, y2+y_offset, 100);
     
     st7735_write_cmd(&hspi1, ST7735_RAMWR, 1, 100);
 
-    for(int i = 0; i <(x2*y2); i++){
+    uint32_t total_pixels = (x2-x1+1)*(y2-y1+1);
+    for(int i = 0; i < total_pixels; i++){
         st7735_write_data(&hspi1, color[0], 1, 100);
         st7735_write_data(&hspi1, color[1], 1, 100);
     }
 }
+

@@ -3,10 +3,14 @@
 #include <main.h>
 #include <stm32f3xx_hal_gpio.h>
 #include <stm32f3xx_hal_spi.h>
+#include <stm32f3xx_hal_adc.h>
 #include <stdint.h>
 #include <stdio.h>
+
 extern SPI_HandleTypeDef hspi1;
+extern ADC_HandleTypeDef hadc1;
 extern uint8_t dc_state;
+
 
 enum states {LOW, HIGH};
 
@@ -17,6 +21,7 @@ enum states {LOW, HIGH};
 #define ST7735_RASET 0x2B
 #define ST7735_RAMWR 0x2C
 #define ST7735_COLMOD 0x3A
+
 
 
 void init();

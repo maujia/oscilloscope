@@ -31,12 +31,14 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include <st7735.h>
+#include <scope.h>
+#include <buttons.h>
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+extern ADC_ChannelConfTypeDef sConfig;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -48,6 +50,8 @@ extern "C" {
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
+
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
@@ -63,12 +67,15 @@ void Error_Handler(void);
 #define LCD_RST_GPIO_Port GPIOA
 #define BTN_CH2_Pin GPIO_PIN_4
 #define BTN_CH2_GPIO_Port GPIOA
+#define BTN_CH2_EXTI_IRQn EXTI4_IRQn
 #define BTN_REC_Pin GPIO_PIN_6
 #define BTN_REC_GPIO_Port GPIOA
+#define BTN_REC_EXTI_IRQn EXTI9_5_IRQn
 #define LCD_CS_Pin GPIO_PIN_0
 #define LCD_CS_GPIO_Port GPIOB
 #define BTN_CH1_Pin GPIO_PIN_1
 #define BTN_CH1_GPIO_Port GPIOB
+#define BTN_CH1_EXTI_IRQn EXTI1_IRQn
 #define LED_CH1_Pin GPIO_PIN_4
 #define LED_CH1_GPIO_Port GPIOB
 #define LED_CH2_Pin GPIO_PIN_5

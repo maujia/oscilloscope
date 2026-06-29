@@ -22,3 +22,7 @@ build/
 
 # Debug logs
 *.log
+
+# Backup files
+*.old
+*.bak
