@@ -21,3 +21,13 @@ P3: Using Frame Buffers to display pixels on the LCD
 P4: Displaying the Waveform 
 1. Transmit each instance of the framebuffer over SPI using the second DMA channel so the CPU doesn’t have to deal with transmission. 
 P5: Project Housing 
+1. Design the housing in CAD to abstract all of the electronics
+
+July 5th, 2026:
+Learnt about AC and DC voltage in capacitors and inductors. Shamefully it genuinely took the whole day and I’m not sure why. I think it’s because I really didn’t understand any of it and still kind of don’t fully. Did not decide to post anything today because I was embarrassed that I cooked my brain trying to learn simple electronics and didn’t have anything tangible to show for it so I’m instead just logging it here. I’m going to post tomorrow on LinkedIn no matter what and complete the signal conditioning tomorrow. Will post on both LinkedIn and Instagram.
+I have to remember that I don’t need to know everything all at once and I just need to know enough and build on that learning. I can’t waste more full days like this since I’m on a time crunch.
+
+
+
+
+
