@@ -63,5 +63,6 @@ P4: Displaying the Waveform
 P5: Project Housing
 1.	Design a CAD housing to enclose and abstract all electronics in a PCB or protoboard based on project timeline.
 
+-> Finalized the circuit needed for measuring signal votlages and cleaned it up. Also tested for measuring DC, AC and PWM signals. 
 
 
