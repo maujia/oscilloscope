@@ -66,3 +66,9 @@ P5: Project Housing
 -> Finalized the circuit needed for measuring signal votlages and cleaned it up. Also tested for measuring DC, AC and PWM signals. 
 
 
+--- July 10th, 2026 ---
+-> Decided to use rotary potentiometer in order to allow a user to modify the trigger value, which is the threshold a signal must surpass before it can be picked up by the probes and shown on the oscilloscope. Otherwise nothing is shown on the screen.
+
+-> Also realized that in order to display PWM signals u need to show the intermediate vertical lines between rising and falling edges which aren’t actually sampled they are just transition phases. To do this you would display signals in vector mode where you program lines in between the dots, which also works for sine waves.
+
+-> Started writing the DMA interrupt code with SPI
