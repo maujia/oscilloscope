@@ -72,3 +72,21 @@ P5: Project Housing
 -> Also realized that in order to display PWM signals u need to show the intermediate vertical lines between rising and falling edges which aren’t actually sampled they are just transition phases. To do this you would display signals in vector mode where you program lines in between the dots, which also works for sine waves.
 
 -> Started writing the DMA interrupt code with SPI
+
+
+--- July 12th, 2026 ---
+Project Design Phase complete V1:
+P1: Analog Front End
+4.	Measure signals without probes acting as heavy loads on the source (high input impedance buffering). Done in LtSpice
+5.	Protect ADC pins from voltages outside 0–3.3V after signal conditioning (clamping diodes). Done in LtSpice
+P2: Data Acquisition
+4.	Use DMA to store the acquired signal instead of relying on the CPU for each sample. DONE 
+5.	Implement a trigger (e.g., edge-detect at a threshold voltage) to determine when to start/stop capturing data. Using a PWM to just set a threshold voltage to meet before measuring instead
+6.	Implement time/div control by reading a potentiometer via ADC and mapping its value to sample rate/capture window length. 
+P3: Frame Buffers for LCD Pixels
+2.	Allocate a complete screen array in memory on the microcontroller to represent display pixels. DONE
+P4: Displaying the Waveform
+3.	Transmit each framebuffer instance over SPI using a second DMA channel, offloading transmission from the CPU. DONE
+4.	Displaying connecting lines between high and low for PWM.
+Testing Phase V1:
+T1: Write complete build process and test code by just sending non waveform code. 
