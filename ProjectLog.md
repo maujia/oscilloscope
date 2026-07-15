@@ -89,4 +89,9 @@ P4: Displaying the Waveform
 3.	Transmit each framebuffer instance over SPI using a second DMA channel, offloading transmission from the CPU. DONE
 4.	Displaying connecting lines between high and low for PWM.
 Testing Phase V1:
-T1: Write complete build process and test code by just sending non waveform code. 
+
+
+--- July 14th, 2026 ---
+-> Finished writing the build process, i.e: linker file, make file, startup code.
+-> Put the whole code folder into codex to find final errors before I flash it to the controller and run test 1:
+
